@@ -115,6 +115,8 @@ nsteps.median<-median(nsteps$nsteps)
 nsteps.median
 ```
 
+Thus the mean and median of the total number of steps taken each day are `r nsteps.mean` and `r nsteps.median` respectively.
+
 ##What is the average daily activity pattern?
 
 We first need to make a table with the average number of steps taken over a 5 minutes interval, averaged over all days. Let us store the five minue intervals in a vector:
@@ -164,7 +166,7 @@ nsteps.na<-sum(is.na(steps[,"steps"]))
 
 So, we have `nsteps.na` number of missing values. 
 
-
+###Imputation strategy of missing data
 We can replace them with the median of the value at that particular interval. It will take care of the outliers also. Let us do this and save the results in a new data set `steps.na.rm`
 
 ```{r}

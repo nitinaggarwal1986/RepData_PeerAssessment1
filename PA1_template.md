@@ -194,6 +194,8 @@ nsteps.median
 ## [1] 24
 ```
 
+Thus the mean and median of the total number of steps taken each day are 24.4590164 and 24 respectively.
+
 ##What is the average daily activity pattern?
 
 We first need to make a table with the average number of steps taken over a 5 minutes interval, averaged over all days. Let us store the five minue intervals in a vector:
@@ -252,7 +254,7 @@ nsteps.na<-sum(is.na(steps[,"steps"]))
 
 So, we have `nsteps.na` number of missing values. 
 
-
+###Imputation strategy of missing data
 We can replace them with the median of the value at that particular interval. It will take care of the outliers also. Let us do this and save the results in a new data set `steps.na.rm`
 
 
@@ -367,10 +369,6 @@ Let us load the package `lattice` to plot the pannel plots.
 library(lattice)
 ```
 
-```
-## Error in library(lattice): Package 'lattice' version 0.20.31 cannot be unloaded
-```
-
 Before plotting graphs we need the data for the average number of steps, averaged over weekdays or weekends, which we get from the following code:
 
 
@@ -398,6 +396,4 @@ Using above data we get the following plot describes the difference between the 
 xyplot(as.numeric(as.character(ansteps1$ansteps))~as.integer(as.character(ansteps1$intervals))|ansteps1$Daytype,type="l", layout=c(1,2),xlab="Five Minute Intervals", ylab="Average number of steps")
 ```
 
-```
-## Error in eval(expr, envir, enclos): could not find function "xyplot"
-```
+![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28-1.png) 
