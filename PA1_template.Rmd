@@ -86,8 +86,8 @@ Now, we calculate the total number of steps taken per day.
 
   nsteps<-cbind(dates,nsteps)
   nsteps<-data.frame(nsteps)
-  nsteps$nsteps<-as.integer(nsteps$nsteps)
-  nsteps$dates<-as.Date(dates,format = "%Y-%m-%d")
+  nsteps$nsteps<-as.integer(as.character(nsteps$nsteps))
+  nsteps$dates<-as.Date(as.character(dates),format = "%Y-%m-%d")
 ```
 
 The resulting table `nsteps` has the dates and the number of steps for those dates, as follows:

@@ -140,8 +140,8 @@ Now, we calculate the total number of steps taken per day.
 
   nsteps<-cbind(dates,nsteps)
   nsteps<-data.frame(nsteps)
-  nsteps$nsteps<-as.integer(nsteps$nsteps)
-  nsteps$dates<-as.Date(dates,format = "%Y-%m-%d")
+  nsteps$nsteps<-as.integer(as.character(nsteps$nsteps))
+  nsteps$dates<-as.Date(as.character(dates),format = "%Y-%m-%d")
 ```
 
 The resulting table `nsteps` has the dates and the number of steps for those dates, as follows:
@@ -153,12 +153,12 @@ The resulting table `nsteps` has the dates and the number of steps for those dat
 
 ```
 ##        dates nsteps
-## 1 2012-10-01      1
-## 2 2012-10-02     20
-## 3 2012-10-03     14
-## 4 2012-10-04     18
-## 5 2012-10-05     25
-## 6 2012-10-06     35
+## 1 2012-10-01      0
+## 2 2012-10-02    126
+## 3 2012-10-03  11352
+## 4 2012-10-04  12116
+## 5 2012-10-05  13294
+## 6 2012-10-06  15420
 ```
 
 Let us now plot the histogram, with red line representing mean and the blue one the median.
@@ -182,7 +182,7 @@ nsteps.mean
 ```
 
 ```
-## [1] 24.45902
+## [1] 9354.23
 ```
 
 ```r
@@ -191,10 +191,10 @@ nsteps.median
 ```
 
 ```
-## [1] 24
+## [1] 10395
 ```
 
-Thus the mean and median of the total number of steps taken each day are 24.4590164 and 24 respectively.
+Thus the mean and median of the total number of steps taken each day are 9354.2295082 and 10395 respectively.
 
 ##What is the average daily activity pattern?
 
